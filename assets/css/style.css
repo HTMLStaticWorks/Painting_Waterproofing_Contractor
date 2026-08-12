@@ -160,7 +160,7 @@ section.section-padding:first-of-type {
 
 .btn-outline-fest:hover {
     background: var(--sunflower-yellow);
-    color: #2a241f;
+    color: #ffffff;
 }
 
 .nav-icon-btn {
@@ -246,7 +246,7 @@ section.section-padding:first-of-type {
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-propertys: none;
+    pointer-events: none;
     z-index: 0;
 }
 
@@ -1141,11 +1141,20 @@ body[data-theme='dark'] .masterpiece-collage img.border-white {
     position: relative;
     overflow: hidden;
     height: 100%;
+    display: flex;
+    flex-direction: column;
     border: 1px solid rgba(0,0,0,0.05);
 }
 .pricing-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+}
+.pricing-card .btn {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
 }
 .pricing-icon-wrap {
     width: 80px;
@@ -1172,7 +1181,7 @@ body[data-theme='dark'] .masterpiece-collage img.border-white {
 }
 .pricing-premium .pricing-icon-wrap {
     background: rgba(255,255,255,0.1);
-    color: var(--sunflower-yellow);
+    color: var(--sky-orange);
 }
 .pricing-premium .text-muted {
     color: rgba(255,255,255,0.7) !important;
@@ -1180,12 +1189,18 @@ body[data-theme='dark'] .masterpiece-collage img.border-white {
 .pricing-premium li {
     border-color: rgba(255,255,255,0.1) !important;
 }
+.pricing-list {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+}
 .pricing-list li {
     padding: 1rem 0;
     border-bottom: 1px solid rgba(0,0,0,0.05);
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 10px;
 }
 .pricing-list li:last-child {

@@ -136,23 +136,6 @@ body[data-theme='dark'] .text-info {
     color: var(--sky-orange) !important;
 }
 
-/* --- text-primary → brand yellow --- */
-body[data-theme='dark'] .text-primary {
-    color: var(--sunflower-yellow) !important;
-}
-
-/* --- text colors → remap all status colors to yellow to remove unrelated colors --- */
-body[data-theme='dark'] .text-success,
-body[data-theme='dark'] .text-danger,
-body[data-theme='dark'] .text-warning {
-    color: var(--sunflower-yellow) !important;
-}
-
-/* --- bg-info → brand orange-tinted background --- */
-body[data-theme='dark'] .bg-info {
-    background-color: var(--sky-orange) !important;
-}
-
 /* --- backgrounds → brand yellow tones --- */
 body[data-theme='dark'] .bg-primary,
 body[data-theme='dark'] .bg-success,
@@ -163,8 +146,22 @@ body[data-theme='dark'] .bg-warning {
 body[data-theme='dark'] .bg-primary-subtle {
     background-color: rgba(250, 204, 21, 0.15) !important;
 }
+
+/* --- text-primary → brand yellow --- */
 body[data-theme='dark'] .text-primary {
     color: var(--sunflower-yellow) !important;
+}
+
+/* --- text colors → remap all status colors to yellow to remove unrelated colors --- */
+body[data-theme='dark'] .text-success,
+body[data-theme='dark'] .text-danger,
+body[data-theme='dark'] .text-warning {
+    color: var(--sky-orange) !important;
+}
+
+/* --- bg-info → brand orange-tinted background --- */
+body[data-theme='dark'] .bg-info {
+    background-color: var(--sky-orange) !important;
 }
 
 /* --- borders → remap off-brand colored borders to brand colors --- */
@@ -178,7 +175,6 @@ body[data-theme='dark'] .border-danger,
 body[data-theme='dark'] .border-success {
     border-color: rgba(250, 204, 21, 0.3) !important; /* same sunflower yellow */
 }
-
 /* --- badge bg-info → brand orange --- */
 body[data-theme='dark'] .badge.bg-info {
     background-color: var(--sky-orange) !important;
@@ -226,4 +222,15 @@ body[data-theme='dark'] h5.text-info,
 body[data-theme='dark'] h4.text-info,
 body[data-theme='dark'] h3.text-info {
     color: var(--sunflower-yellow) !important;
+}
+
+/* Pricing Cards Dark Mode Fix */
+body[data-theme='dark'] .pricing-card {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+body[data-theme='dark'] .pricing-premium {
+    background: linear-gradient(135deg, #2b1f15 0%, #1a1510 100%); /* A nice dark warm gradient to match the orange theme */
+    border: 1px solid var(--sunflower-yellow);
 }

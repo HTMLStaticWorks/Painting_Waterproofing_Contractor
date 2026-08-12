@@ -117,6 +117,9 @@
             background-color: var(--secondary-bg) !important;
             color: var(--sunflower-yellow) !important;
         }
+        body[data-theme='dark'] .accordion-button:not(.collapsed) {
+            color: var(--sky-orange) !important;
+        }
         .accordion-button::after {
             filter: invert(1) brightness(200%);
         }
@@ -199,7 +202,7 @@
                     <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Projects</a></li>
                     <li class="nav-item"><a class="nav-link active" href="pricing.html">Brands & Pricing</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                     <li class="nav-item d-lg-none mt-2">
@@ -220,17 +223,21 @@
     </nav>
 
     <!-- Header -->
-    <header class="section-padding text-center" style="background: var(--secondary-bg);">
-        <div class="container">
-            <h1 class="display-3 fw-bold">Premium Brands We Use</h1>
-            <p class="lead text-muted">Pick a package that fits your property vibe.</p>
+    <header class="section-padding text-center position-relative" style="background: url('assets/images/hero_pricing.png') center 10% / cover no-repeat; min-height: 400px; display: flex; align-items: center;">
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(15, 23, 42, 0.75);"></div>
+        <div class="container position-relative z-1">
+
+            <span class="badge bg-white text-black mb-3 px-3 py-2 rounded-pill shadow-sm">Packages</span>
+            <h1 class="display-3 fw-bold text-white">Premium Brands We Use</h1>
+            <p class="lead text-white-50">Pick a package that fits your property vibe.</p>
+        
         </div>
     </header>
 
     <!-- Premium Painting Packages -->
     <section class="section-padding mt-5 pt-4">
         <div class="container">
-            <div class="row g-4 align-items-center mt-5">
+            <div class="row g-4 mt-5">
                 <!-- Standard Refresh -->
                 <div class="col-lg-4">
                     <div class="pricing-card text-center">
@@ -246,7 +253,7 @@
                             <li class="opacity-50"><i class="bi bi-x"></i> Deep Crack Repair</li>
                             <li class="opacity-50"><i class="bi bi-x"></i> Anti-Damp Waterproofing</li>
                         </ul>
-                        <a href="quote.html" class="btn btn-project btn-outline-fest w-100 rounded-pill py-3 fw-bold">Get Estimate</a>
+                        <a href="quote.html" class="btn btn-project btn-outline-fest w-100 rounded-pill py-3 fw-bold mt-auto">Get Estimate</a>
                     </div>
                 </div>
                 
@@ -266,7 +273,7 @@
                             <li><i class="bi bi-check2-circle text-warning"></i> 5-Year Peeling Warranty</li>
                             <li class="opacity-50"><i class="bi bi-x"></i> Custom Texture Finishes</li>
                         </ul>
-                        <a href="quote.html" class="btn btn-project btn-primary-fest w-100 rounded-pill py-3 fw-bold shadow">Book Premium Package</a>
+                        <a href="quote.html" class="btn btn-project btn-primary-fest w-100 rounded-pill py-3 fw-bold shadow mt-auto">Book Premium Package</a>
                     </div>
                 </div>
                 
@@ -285,7 +292,7 @@
                             <li><i class="bi bi-check2 text-orange"></i> Dedicated Project Manager</li>
                             <li><i class="bi bi-check2 text-orange"></i> 10-Year Comprehensive Warranty</li>
                         </ul>
-                        <a href="quote.html" class="btn btn-project btn-outline-fest w-100 rounded-pill py-3 fw-bold">Request Consultation</a>
+                        <a href="quote.html" class="btn btn-project btn-outline-fest w-100 rounded-pill py-3 fw-bold mt-auto">Request Consultation</a>
                     </div>
                 </div>
             </div>
@@ -315,7 +322,7 @@
                                     <p class="text-light opacity-75 mb-0">Our go-to for washable interior emulsions and weather-resistant exterior coatings. Known for vibrant, lasting colors.</p>
                                 </div>
                                 <div class="bg-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 ms-3" style="width: 50px; height: 50px;">
-                                    <i class="bi bi-arrow-right text-dark fs-5"></i>
+                                    <i class="bi bi-arrow-right text-black fs-5"></i>
                                 </div>
                             </div>
                         </div>
@@ -333,7 +340,7 @@
                                     <p class="text-light opacity-75 mb-0">The ultimate standard for our waterproofing projects. Advanced polymers to completely seal roofs and basements.</p>
                                 </div>
                                 <div class="bg-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 ms-3" style="width: 50px; height: 50px;">
-                                    <i class="bi bi-arrow-right text-dark fs-5"></i>
+                                    <i class="bi bi-arrow-right text-black fs-5"></i>
                                 </div>
                             </div>
                         </div>
@@ -351,7 +358,7 @@
                                     <p class="text-light opacity-75 mb-0">Selected for high-end luxury interiors requiring smooth, velvet-touch finishes and exceptional stain resistance.</p>
                                 </div>
                                 <div class="bg-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 ms-3" style="width: 50px; height: 50px;">
-                                    <i class="bi bi-arrow-right text-dark fs-5"></i>
+                                    <i class="bi bi-arrow-right text-black fs-5"></i>
                                 </div>
                             </div>
                         </div>
@@ -369,7 +376,7 @@
                                     <p class="text-light opacity-75 mb-0">Our preferred choice for heavy-duty commercial projects, offering unparalleled durability against extreme weather.</p>
                                 </div>
                                 <div class="bg-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 ms-3" style="width: 50px; height: 50px;">
-                                    <i class="bi bi-arrow-right text-dark fs-5"></i>
+                                    <i class="bi bi-arrow-right text-black fs-5"></i>
                                 </div>
                             </div>
                         </div>
@@ -416,7 +423,7 @@
                     <div class="position-relative">
                         <img src="assets/images/commercial_painting.png" class="img-fluid rounded-4 shadow-lg" alt="Certified Painters at work">
                         <!-- Floating Badge -->
-                        <div class="position-absolute bottom-0 end-0 bg-white p-4 rounded-4 shadow-lg" style="transform: translate(10%, 20%); max-width: 250px;">
+                        <div class="position-absolute bottom-0 end-0 p-4 rounded-4 shadow-lg" style="transform: translate(10%, 20%); max-width: 250px; background-color: var(--card-bg, #ffffff);">
                             <div class="d-flex align-items-center gap-3">
                                 <div class="bg-orange bg-opacity-10 p-3 rounded-circle text-orange">
                                     <i class="bi bi-shield-check fs-2"></i>
@@ -552,7 +559,6 @@
                     <p class="text-muted">Premium painting and waterproofing services for residential and commercial properties. Quality finishes that last.</p>
                     <div class="social-icons">
                         <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
                         <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
                         <a href="#" class="social-icon"><i class="bi bi-pinterest"></i></a>
                     </div>

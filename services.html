@@ -173,7 +173,7 @@
                     <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="pricing.html">Brands & Pricing</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                     <li class="nav-item d-lg-none mt-2">
@@ -194,10 +194,14 @@
     </nav>
 
     <!-- Header -->
-    <header class="section-padding text-center" style="background: var(--secondary-bg);">
-        <div class="container">
-            <h1 class="display-3 fw-bold">Our Core Services</h1>
-            <p class="lead text-muted">Explore our professional painting and waterproofing services designed to protect and beautify your property.</p>
+    <header class="section-padding text-center position-relative" style="background: url('assets/images/hero_services.png') center/cover no-repeat; min-height: 400px; display: flex; align-items: center;">
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(15, 23, 42, 0.75);"></div>
+        <div class="container position-relative z-1">
+
+            <span class="badge bg-white text-black mb-3 px-3 py-2 rounded-pill shadow-sm">What We Do</span>
+            <h1 class="display-3 fw-bold text-white">Our Core Services</h1>
+            <p class="lead text-white-50">Explore our professional painting and waterproofing services designed to protect and beautify your property.</p>
+        
         </div>
     </header>
 
@@ -438,6 +442,29 @@
         </style>
     </section>
 
+    <!-- Unique Section: Advanced Technology -->
+    <section class="section-padding bg-main text-white position-relative overflow-hidden">
+        <div class="container position-relative z-1">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold mb-3 tracking-wider">STATE-OF-THE-ART</span>
+                    <h2 class="display-5 fw-bolder mb-4">Precision Airless Spray Technology</h2>
+                    <p class="lead text-white-50 mb-4">We've moved beyond traditional brushes and rollers. Our airless spray technology ensures a mirror-like, flawless finish in half the time, penetrating deeper into surfaces for unmatched durability.</p>
+                    <ul class="list-unstyled mb-5">
+                        <li class="mb-3 d-flex align-items-center gap-3"><i class="bi bi-speedometer2 text-warning fs-4"></i> <span>3x Faster Application</span></li>
+                        <li class="mb-3 d-flex align-items-center gap-3"><i class="bi bi-droplet-half text-warning fs-4"></i> <span>Zero Brush Marks</span></li>
+                        <li class="mb-3 d-flex align-items-center gap-3"><i class="bi bi-shield-check text-warning fs-4"></i> <span>Thicker Protective Coats</span></li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-project btn-primary-fest px-5 py-3 rounded-pill fw-bold text-white border-0 shadow-lg" style="letter-spacing: 1px;">BOOK A TECH-DRIVEN CONSULTATION</a>
+                </div>
+                <div class="col-lg-6 position-relative">
+                    <div class="position-absolute bg-warning rounded-circle" style="width: 300px; height: 300px; top: -50px; right: -50px; opacity: 0.2; filter: blur(40px);"></div>
+                    <img src="assets/images/service_luxury_finish.png" alt="Advanced Spray Painting" class="img-fluid rounded-4 shadow-lg border border-5 border-warning position-relative z-2" style="transform: perspective(1000px) rotateY(-10deg);">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -463,7 +490,6 @@
                     <p class="text-muted">Premium painting and waterproofing services for residential and commercial properties. Quality finishes that last.</p>
                     <div class="social-icons">
                         <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
                         <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
                         <a href="#" class="social-icon"><i class="bi bi-pinterest"></i></a>
                     </div>
