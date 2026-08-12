@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | ProCoat Painting</title>
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
+    <style>
+        .contact-social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary-bg);
+            border-radius: 15px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            font-size: 1.3rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0,0,0,0.05);
+            margin-right: 10px;
+        }
+        .contact-social-link:hover {
+            background: var(--sunflower-yellow);
+            transform: translateY(-10px) rotate(10deg);
+            color: #0f172a;
+            box-shadow: 0 15px 30px rgba(30, 58, 138, 0.3);
+        }
+        .map-wrapper {
+            border-radius: 4rem;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+        }
+        .concierge-card {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 3rem;
+            border: 1px solid var(--border-color);
+            height: 100%;
+            transition: all 0.4s ease;
+        }
+        .concierge-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+            border-color: rgba(30, 58, 138, 0.4);
+        }
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            background: rgba(var(--sunflower-yellow-rgb, 30, 58, 138), 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        body[data-theme='light'] .icon-circle {
+            background: #f8fafc;
+        }
+        body[data-theme='dark'] .icon-circle {
+            background: rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <nav class="navbar navbar-expand-xl navbar-custom">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html" style="text-decoration: none;">
+                <svg width="36" height="36" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25 5C25 5 10 18 10 30C10 38.284 16.716 45 25 45C33.284 45 40 38.284 40 30C40 18 25 5 25 5Z" fill="url(#paint_nav)"/>
+                    <rect x="18" y="18" width="14" height="7" rx="2" fill="white"/>
+                    <path d="M16 21.5H14V30C14 31.105 14.895 32 16 32H25V35" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <rect x="23" y="35" width="4" height="5" rx="1" fill="white"/>
+                    <defs>
+                        <linearGradient id="paint_nav" x1="10" y1="25" x2="40" y2="25" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#1E3A8A"/>
+                            <stop offset="1" stop-color="#3B82F6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="fs-4 fw-bolder mb-0" style="color: #1E3A8A; letter-spacing: -1px; font-family: 'Inter', sans-serif;">Pro<span style="color: #3B82F6;">Coat</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Brands & Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+                    <li class="nav-item d-lg-none mt-2">
+                        <div class="d-flex gap-2 px-2 pb-2">
+                            <button class="btn btn-project btn-primary-fest flex-fill" onclick="location.href='login.html'">Login</button>
+                            <button class="btn btn-project btn-outline-fest flex-fill" onclick="location.href='quote.html'">Free Quote</button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <button id="rtl-toggle" class="btn btn-outline-fest nav-icon-btn fw-bold" style="font-size: 0.8rem;">RTL</button>
+                    <button id="theme-toggle" class="btn btn-outline-fest nav-icon-btn"><i class="bi bi-moon-stars-fill"></i></button>
+                    <button class="btn btn-project btn-primary-fest d-none d-lg-block" onclick="location.href='login.html'">Login</button>
+                    <button class="btn btn-project btn-outline-fest d-none d-lg-block" onclick="location.href='quote.html'">Free Quote</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <header class="section-padding text-center" style="background: var(--secondary-bg);">
+        <div class="container">
+            <h1 class="display-3 fw-bold">Let's Talk Projects</h1>
+            <p class="lead text-muted">Have questions about your upcoming property? Reach out!</p>
+        </div>
+    </header>
+    <section class="section-padding">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-7 text-center text-lg-start">
+                    <div class="service-card p-4 p-lg-5">
+                        <h2 class="mb-4">Send a Message</h2>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6"><input type="text" class="form-control rounded-pill p-3 border-primary w-100" placeholder="Your Name"></div>
+                                <div class="col-md-6"><input type="email" class="form-control rounded-pill p-3 border-primary w-100" placeholder="Your Email"></div>
+                                <div class="col-12"><input type="text" class="form-control rounded-pill p-3 border-primary w-100" placeholder="Property Location"></div>
+                                <div class="col-12"><textarea class="form-control rounded-4 p-3 border-primary w-100" rows="5" placeholder="Your Message"></textarea></div>
+                                <div class="col-12"><button type="submit" class="btn btn-project btn-primary-fest py-3 w-100">Send Message</button></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center text-lg-start">
+                    <div class="p-4 rounded-5 border border-info mb-4">
+                        <h4>Contact Info</h4>
+                        <div class="d-flex flex-column flex-lg-row align-items-center align-items-lg-start gap-2 gap-lg-3 mb-2">
+                            <i class="bi bi-telephone-fill text-info fs-4 mb-1 mb-lg-0"></i>
+                            <p class="mb-0">(555) 123-4567</p>
+                        </div>
+                        <div class="d-flex flex-column flex-lg-row align-items-center align-items-lg-start gap-2 gap-lg-3 mb-2">
+                            <i class="bi bi-envelope-fill text-info fs-4 mb-1 mb-lg-0"></i>
+                            <p class="mb-0">hello@procoat.com</p>
+                        </div>
+                        <div class="d-flex flex-column flex-lg-row align-items-center align-items-lg-start gap-2 gap-lg-3">
+                            <i class="bi bi-geo-alt-fill text-info fs-4 mb-1 mb-lg-0"></i>
+                            <p class="mb-0">123 Project Way, ProCity</p>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-5 border border-primary">
+                        <h4>Office Hours</h4>
+                        <p class="mb-1">Mon - Fri: 9am - 6pm</p>
+                        <p class="mb-3">Sat: 10am - 4pm (Drop-offs only)</p>
+                        <p class="mb-4">Sun: Closed (Enjoy the sun!)</p>
+                        
+                        <div class="pt-3 border-top">
+                            <h6 class="mb-3 text-uppercase small fw-bold text-muted">Follow Us</h6>
+                            <div class="d-flex justify-content-center justify-content-lg-start">
+                                <a href="#" class="contact-social-link"><i class="bi bi-instagram"></i></a>
+                                <a href="#" class="contact-social-link"><i class="bi bi-tiktok"></i></a>
+                                <a href="#" class="contact-social-link"><i class="bi bi-facebook"></i></a>
+                                <a href="#" class="contact-social-link"><i class="bi bi-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Google Map -->
+            <div class="mt-5 pt-5">
+                <div class="section-title">
+                    <span class="text-info">Visit Us</span>
+                    <h2>Our Headquarters</h2>
+                </div>
+                <div class="map-wrapper mt-4">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d103444.64010166205!2d-78.71801844007827!3d35.83311899933596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ac5a2f9f5110dc%3A0x7f37f37478d10f99!2sRaleigh%2C%20NC!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Property Concierge -->
+    <section class="section-padding" style="background: var(--secondary-bg); border-radius: 5rem;">
+        <div class="container">
+            <div class="section-title">
+                <span class="text-orange">Expert Help</span>
+                <h2>Your Property Concierge</h2>
+            </div>
+            <div class="row g-4 mt-2 justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="concierge-card text-center text-lg-start">
+                        <div class="icon-circle text-info mx-auto mx-lg-0"><i class="bi bi-palette-fill"></i></div>
+                        <h4>Theme Matching</h4>
+                        <p class="text-muted mb-0">Not sure which services fit your residential or corporate brand? Our designers will help you curate the perfect service palette.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="concierge-card text-center text-lg-start">
+                        <div class="icon-circle text-orange mx-auto mx-lg-0"><i class="bi bi-map-fill"></i></div>
+                        <h4>Space Planning</h4>
+                        <p class="text-muted mb-0">Send us a photo or sketch of your venue, and we'll create a digital layout to ensure optimal player flow and safety.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="concierge-card text-center text-lg-start">
+                        <div class="icon-circle text-success mx-auto mx-lg-0"><i class="bi bi-shield-check"></i></div>
+                        <h4>Damage Support</h4>
+                        <p class="text-muted mb-0">Accidents happen! Our concierge handles all waiver claims and replacement logistics so you can keep projecting.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="footer-logo d-flex align-items-center gap-2 mb-3" href="index.html" style="text-decoration: none;">
+                        <svg width="36" height="36" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M25 5C25 5 10 18 10 30C10 38.284 16.716 45 25 45C33.284 45 40 38.284 40 30C40 18 25 5 25 5Z" fill="url(#paint_foot)"/>
+                            <rect x="18" y="18" width="14" height="7" rx="2" fill="white"/>
+                            <path d="M16 21.5H14V30C14 31.105 14.895 32 16 32H25V35" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            <rect x="23" y="35" width="4" height="5" rx="1" fill="white"/>
+                            <defs>
+                                <linearGradient id="paint_foot" x1="10" y1="25" x2="40" y2="25" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#1E3A8A"/>
+                                    <stop offset="1" stop-color="#3B82F6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span class="fs-4 fw-bolder mb-0" style="letter-spacing: -1px; font-family: 'Inter', sans-serif;">
+                            <span class="text-dark">Pro</span><span style="color: #3B82F6;">Coat</span>
+                        </span>
+                    </a>
+                    <p class="text-muted">Premium painting and waterproofing services for residential and commercial properties. Quality finishes that last.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 footer-links">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="brands.html">Brands We Use</a></li>
+                        <li><a href="quote.html">Free Quote</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 footer-links">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="gallery.html">Project Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Newsletter</h5>
+                    <p class="text-muted">Get painting tips and seasonal service discounts.</p>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control rounded-pill-start border-primary" placeholder="Email address">
+                        <button class="btn btn-project btn-primary-fest rounded-pill-end" type="button">Join</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5 border-primary opacity-25">
+            <div class="text-center text-muted small">
+                &copy; 2026 ProCoat Painting. All rights reserved.
+            </div>
+        </div>
+    </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brands We Use & Packages | ProCoat Painting</title>
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
+    
+    <style>
+        /* Force Accordion Colors to bypass cache/Bootstrap defaults */
+        .accordion-button {
+            color: #2a241f !important;
+        }
+        .accordion-button:not(.collapsed) {
+            color: #2a241f !important;
+            background-color: #fffdf5 !important;
+            font-weight: 600;
+        }
+        .accordion-button::after {
+            filter: brightness(0) !important;
+        }
+        .accordion-button:not(.collapsed)::after {
+            filter: brightness(0) !important;
+        }
+
+        /* Section 1: Planner Perks */
+        .planner-card {
+            background: #0f172a;
+            border-radius: 4rem;
+            padding: 4rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .rotate-badge {
+            width: 150px;
+            height: 150px;
+            animation: rotate 15s linear infinite;
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            opacity: 0.1;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Section 2: Comparison */
+        .comparison-wrap {
+            background: var(--secondary-bg);
+            border-radius: 5rem;
+            padding: 5rem 0;
+        }
+        .compare-card {
+            background: var(--card-bg);
+            border-radius: 3rem;
+            padding: 3rem;
+            height: 100%;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        body[data-theme='dark'] .compare-card {
+            border-color: rgba(255,255,255,0.1);
+        }
+        .compare-card.premium {
+            border: 1px solid rgba(30, 58, 138, 0.4);
+            box-shadow: 0 20px 50px rgba(30, 58, 138, 0.1);
+        }
+        .compare-card:hover {
+            transform: translateY(-10px);
+        }
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        .check-item.revealed {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.5s ease;
+        }
+        .icon-box {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* Accordion Theme Sync */
+        .accordion-item {
+            background-color: var(--card-bg) !important;
+            border-color: rgba(128,128,128,0.2) !important;
+        }
+        .accordion-button {
+            background-color: var(--card-bg) !important;
+            color: var(--text-main) !important;
+            box-shadow: none !important;
+        }
+        .accordion-button:not(.collapsed) {
+            background-color: var(--secondary-bg) !important;
+            color: var(--sunflower-yellow) !important;
+        }
+        .accordion-button::after {
+            filter: invert(1) brightness(200%);
+        }
+        body[data-theme='light'] .accordion-button::after {
+            filter: none;
+        }
+        .accordion-body {
+            color: var(--text-main) !important;
+            opacity: 0.8;
+        }
+
+        /* NEW: Most Popular Design */
+        .popular-card {
+            position: relative;
+            border: 1px solid rgba(30, 58, 138, 0.5) !important;
+            transform: scale(1.05);
+            z-index: 10;
+            box-shadow: 0 30px 60px rgba(30, 58, 138, 0.15) !important;
+            overflow: visible !important; /* Fix for global overflow: hidden */
+        }
+        @media (max-width: 991px) {
+            .popular-card {
+                transform: scale(1);
+            }
+        }
+        .popular-badge-new {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--sunflower-yellow), #ea580c);
+            color: #0f172a !important;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.4);
+            white-space: nowrap;
+            z-index: 100; /* Extremely high to stay on top */
+            animation: badge-pulse 3s infinite ease-in-out;
+            pointer-events: none; /* Don't block button clicks */
+        }
+        @keyframes badge-pulse {
+            0%, 100% { transform: translateX(-50%) scale(1); box-shadow: 0 10px 25px rgba(30, 58, 138, 0.4); }
+            50% { transform: translateX(-50%) scale(1.08); box-shadow: 0 15px 35px rgba(30, 58, 138, 0.6); }
+        }
+        body[data-theme='dark'] .popular-badge-new {
+            border-color: var(--secondary-bg);
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-xl navbar-custom">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html" style="text-decoration: none;">
+                <svg width="36" height="36" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25 5C25 5 10 18 10 30C10 38.284 16.716 45 25 45C33.284 45 40 38.284 40 30C40 18 25 5 25 5Z" fill="url(#paint_nav)"/>
+                    <rect x="18" y="18" width="14" height="7" rx="2" fill="white"/>
+                    <path d="M16 21.5H14V30C14 31.105 14.895 32 16 32H25V35" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <rect x="23" y="35" width="4" height="5" rx="1" fill="white"/>
+                    <defs>
+                        <linearGradient id="paint_nav" x1="10" y1="25" x2="40" y2="25" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#1E3A8A"/>
+                            <stop offset="1" stop-color="#3B82F6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="fs-4 fw-bolder mb-0" style="color: #1E3A8A; letter-spacing: -1px; font-family: 'Inter', sans-serif;">Pro<span style="color: #3B82F6;">Coat</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="pricing.html">Brands & Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item d-lg-none mt-2">
+                        <div class="d-flex gap-2 px-2 pb-2">
+                            <button class="btn btn-project btn-primary-fest flex-fill" onclick="location.href='login.html'">Login</button>
+                            <button class="btn btn-project btn-outline-fest flex-fill" onclick="location.href='quote.html'">Free Quote</button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <button id="rtl-toggle" class="btn btn-outline-fest nav-icon-btn fw-bold" style="font-size: 0.8rem;">RTL</button>
+                    <button id="theme-toggle" class="btn btn-outline-fest nav-icon-btn"><i class="bi bi-moon-stars-fill"></i></button>
+                    <button class="btn btn-project btn-primary-fest d-none d-lg-block" onclick="location.href='login.html'">Login</button>
+                    <button class="btn btn-project btn-outline-fest d-none d-lg-block" onclick="location.href='quote.html'">Free Quote</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="section-padding text-center" style="background: var(--secondary-bg);">
+        <div class="container">
+            <h1 class="display-3 fw-bold">Premium Brands We Use</h1>
+            <p class="lead text-muted">Pick a package that fits your property vibe.</p>
+        </div>
+    </header>
+
+    <!-- Premium Painting Packages -->
+    <section class="section-padding mt-5 pt-4">
+        <div class="container">
+            <div class="row g-4 align-items-center mt-5">
+                <!-- Standard Refresh -->
+                <div class="col-lg-4">
+                    <div class="pricing-card text-center">
+                        <div class="pricing-icon-wrap"><i class="bi bi-brush display-5"></i></div>
+                        <h4 class="fw-bold mb-2">Standard Refresh</h4>
+                        <p class="text-muted small mb-4">Perfect for quick move-ins or rentals.</p>
+                        <h2 class="display-4 fw-bolder mb-1">$499<small class="fs-6 text-muted">/ base room</small></h2>
+                        
+                        <ul class="list-unstyled pricing-list mt-5 mb-5 text-muted">
+                            <li><i class="bi bi-check2 text-orange"></i> 2 Coats of Acrylic Emulsion</li>
+                            <li><i class="bi bi-check2 text-orange"></i> Basic Wall Putty & Sanding</li>
+                            <li><i class="bi bi-check2 text-orange"></i> Complete Furniture Masking</li>
+                            <li class="opacity-50"><i class="bi bi-x"></i> Deep Crack Repair</li>
+                            <li class="opacity-50"><i class="bi bi-x"></i> Anti-Damp Waterproofing</li>
+                        </ul>
+                        <a href="quote.html" class="btn btn-project btn-outline-fest w-100 rounded-pill py-3 fw-bold">Get Estimate</a>
+                    </div>
+                </div>
+                
+                <!-- Premium Protection -->
+                <div class="col-lg-4">
+                    <div class="pricing-card pricing-premium text-center">
+                        <div class="pricing-badge">Most Popular</div>
+                        <div class="pricing-icon-wrap"><i class="bi bi-shield-check display-5"></i></div>
+                        <h4 class="fw-bold mb-2">Premium Protection</h4>
+                        <p class="text-muted small mb-4">The ultimate shield for your home's exterior/interior.</p>
+                        <h2 class="display-4 fw-bolder mb-1 text-white">$899<small class="fs-6 text-muted">/ base room</small></h2>
+                        
+                        <ul class="list-unstyled pricing-list mt-5 mb-5 text-light">
+                            <li><i class="bi bi-check2-circle text-warning"></i> Washable Premium Enamel</li>
+                            <li><i class="bi bi-check2-circle text-warning"></i> Advanced Dr. Fixit Waterproofing</li>
+                            <li><i class="bi bi-check2-circle text-warning"></i> Deep Crack Filling & Curing</li>
+                            <li><i class="bi bi-check2-circle text-warning"></i> 5-Year Peeling Warranty</li>
+                            <li class="opacity-50"><i class="bi bi-x"></i> Custom Texture Finishes</li>
+                        </ul>
+                        <a href="quote.html" class="btn btn-project btn-primary-fest w-100 rounded-pill py-3 fw-bold shadow">Book Premium Package</a>
+                    </div>
+                </div>
+                
+                <!-- Luxury Overhaul -->
+                <div class="col-lg-4">
+                    <div class="pricing-card text-center">
+                        <div class="pricing-icon-wrap"><i class="bi bi-gem display-5"></i></div>
+                        <h4 class="fw-bold mb-2">Luxury Overhaul</h4>
+                        <p class="text-muted small mb-4">Bespoke finishes for high-end properties.</p>
+                        <h2 class="display-4 fw-bolder mb-1">$1,499<small class="fs-6 text-muted">/ base room</small></h2>
+                        
+                        <ul class="list-unstyled pricing-list mt-5 mb-5 text-muted">
+                            <li><i class="bi bi-check2 text-orange"></i> Metallic or Stucco Texture Walls</li>
+                            <li><i class="bi bi-check2 text-orange"></i> PU Enamel Wood Polishing</li>
+                            <li><i class="bi bi-check2 text-orange"></i> Roof Thermal Insulation Coating</li>
+                            <li><i class="bi bi-check2 text-orange"></i> Dedicated Project Manager</li>
+                            <li><i class="bi bi-check2 text-orange"></i> 10-Year Comprehensive Warranty</li>
+                        </ul>
+                        <a href="quote.html" class="btn btn-project btn-outline-fest w-100 rounded-pill py-3 fw-bold">Request Consultation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Unique Section 1: Trusted Material Brands (Image Cards) -->
+    <section class="section-padding overflow-hidden">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <span class="text-orange fw-bold text-uppercase tracking-wider">Premium Materials</span>
+                <h2 class="display-5 fw-bolder text-main">Brands We Trust</h2>
+                <p class="text-muted lead mt-3">We partner exclusively with industry-leading manufacturers to guarantee flawless, long-lasting results.</p>
+            </div>
+            
+            <div class="row g-4 mt-2">
+                <!-- Brand Card 1 -->
+                <div class="col-md-6">
+                    <div class="brand-image-card position-relative rounded-4 overflow-hidden shadow-sm h-100">
+                        <img src="assets/images/before_after_exterior_before.png" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0" alt="Interior Painting">
+                        <div class="brand-gradient-overlay position-absolute w-100 h-100 top-0 start-0"></div>
+                        <div class="position-relative p-4 p-xl-5 d-flex flex-column justify-content-end h-100" style="z-index: 2;">
+                            <div class="d-flex justify-content-between align-items-end">
+                                <div>
+                                    <h3 class="text-white fw-bolder mb-2" style="letter-spacing: -1px;">Asian Paints</h3>
+                                    <p class="text-light opacity-75 mb-0">Our go-to for washable interior emulsions and weather-resistant exterior coatings. Known for vibrant, lasting colors.</p>
+                                </div>
+                                <div class="bg-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 ms-3" style="width: 50px; height: 50px;">
+                                    <i class="bi bi-arrow-right text-dark fs-5"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Brand Card 2 -->
+                <div class="col-md-6">
+                    <div class="brand-image-card position-relative rounded-4 overflow-hidden shadow-sm h-100">
+                        <img src="assets/images/gallery_project_5.png" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0" alt="Waterproofing">
+                        <div class="brand-gradient-overlay position-absolute w-100 h-100 top-0 start-0"></div>
+                        <div class="position-relative p-4 p-xl-5 d-flex flex-column justify-content-end h-100" style="z-index: 2;">
+                            <div class="d-flex justify-content-between align-items-end">
+                                <div>
+                                    <h3 class="text-white fw-bolder mb-2" style="letter-spacing: -1px;">Dr. Fixit</h3>
+                                    <p class="text-light opacity-75 mb-0">The ultimate standard for our waterproofing projects. Advanced polymers to completely seal roofs and basements.</p>
+                                </div>
+                                <div class="bg-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 ms-3" style="width: 50px; height: 50px;">
+                                    <i class="bi bi-arrow-right text-dark fs-5"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Brand Card 3 -->
+                <div class="col-md-6">
+                    <div class="brand-image-card position-relative rounded-4 overflow-hidden shadow-sm h-100">
+                        <img src="assets/images/gallery_project_2.png" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0" alt="Luxury Finish">
+                        <div class="brand-gradient-overlay position-absolute w-100 h-100 top-0 start-0"></div>
+                        <div class="position-relative p-4 p-xl-5 d-flex flex-column justify-content-end h-100" style="z-index: 2;">
+                            <div class="d-flex justify-content-between align-items-end">
+                                <div>
+                                    <h3 class="text-white fw-bolder mb-2" style="letter-spacing: -1px;">Dulux</h3>
+                                    <p class="text-light opacity-75 mb-0">Selected for high-end luxury interiors requiring smooth, velvet-touch finishes and exceptional stain resistance.</p>
+                                </div>
+                                <div class="bg-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 ms-3" style="width: 50px; height: 50px;">
+                                    <i class="bi bi-arrow-right text-dark fs-5"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Brand Card 4 -->
+                <div class="col-md-6">
+                    <div class="brand-image-card position-relative rounded-4 overflow-hidden shadow-sm h-100">
+                        <img src="assets/images/waterproofing_expert.png" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0" alt="Commercial Painting">
+                        <div class="brand-gradient-overlay position-absolute w-100 h-100 top-0 start-0"></div>
+                        <div class="position-relative p-4 p-xl-5 d-flex flex-column justify-content-end h-100" style="z-index: 2;">
+                            <div class="d-flex justify-content-between align-items-end">
+                                <div>
+                                    <h3 class="text-white fw-bolder mb-2" style="letter-spacing: -1px;">Jotun</h3>
+                                    <p class="text-light opacity-75 mb-0">Our preferred choice for heavy-duty commercial projects, offering unparalleled durability against extreme weather.</p>
+                                </div>
+                                <div class="bg-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 ms-3" style="width: 50px; height: 50px;">
+                                    <i class="bi bi-arrow-right text-dark fs-5"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <style>
+                .brand-image-card {
+                    min-height: 350px;
+                    cursor: pointer;
+                }
+                .brand-image-card img {
+                    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+                    z-index: 0;
+                }
+                .brand-gradient-overlay {
+                    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.1) 100%);
+                    z-index: 1;
+                    transition: background 0.4s ease;
+                }
+                .brand-image-card:hover img {
+                    transform: scale(1.08);
+                }
+                .brand-image-card:hover .brand-gradient-overlay {
+                    background: linear-gradient(to top, rgba(234,88,12,0.9) 0%, rgba(0,0,0,0.2) 100%);
+                }
+                .brand-image-card .bg-white i {
+                    transition: transform 0.3s ease;
+                }
+                .brand-image-card:hover .bg-white i {
+                    transform: translateX(5px);
+                    color: var(--sky-orange) !important;
+                }
+            </style>
+        </div>
+    </section>
+
+    <!-- Unique Section 2: Certified Applicators (Split Content with Parallax image) -->
+    <section class="section-padding" style="background: var(--main-bg);">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <div class="position-relative">
+                        <img src="assets/images/commercial_painting.png" class="img-fluid rounded-4 shadow-lg" alt="Certified Painters at work">
+                        <!-- Floating Badge -->
+                        <div class="position-absolute bottom-0 end-0 bg-white p-4 rounded-4 shadow-lg" style="transform: translate(10%, 20%); max-width: 250px;">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="bg-orange bg-opacity-10 p-3 rounded-circle text-orange">
+                                    <i class="bi bi-shield-check fs-2"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-0">Certified</h5>
+                                    <span class="text-muted small">Brand Applicators</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5 mt-5 mt-lg-0">
+                    <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill tracking-wider fw-bold shadow-sm">The ProCoat Guarantee</span>
+                    <h2 class="display-5 fw-bolder text-main mb-4">Why Top Brands Matter</h2>
+                    <p class="lead text-muted mb-4">Applying paint is only half the battle. The quality of the underlying materials determines whether a job lasts 2 years or 10 years.</p>
+                    
+                    <div class="d-flex mb-4">
+                        <div class="me-4 mt-1 text-orange"><i class="bi bi-patch-check-fill fs-3"></i></div>
+                        <div>
+                            <h5 class="fw-bold">Manufacturer Warranties</h5>
+                            <p class="text-muted mb-0">Because we are certified applicators for our brand partners, you receive the full 5 to 10-year manufacturer warranties on all materials used.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex mb-4">
+                        <div class="me-4 mt-1 text-orange"><i class="bi bi-droplet-half fs-3"></i></div>
+                        <div>
+                            <h5 class="fw-bold">Eco-Friendly & Low VOC</h5>
+                            <p class="text-muted mb-0">We exclusively select product lines that are low in Volatile Organic Compounds (VOCs), ensuring the air inside your home remains safe and breathable.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex">
+                        <div class="me-4 mt-1 text-orange"><i class="bi bi-sun-fill fs-3"></i></div>
+                        <div>
+                            <h5 class="fw-bold">Extreme Weather Defense</h5>
+                            <p class="text-muted mb-0">Our waterproofing and exterior brands are engineered specifically to flex and breathe, preventing peeling and cracking during severe temperature shifts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FAQ Section -->
+    <section class="section-padding" style="background: var(--secondary-bg);">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <span class="text-info fw-bold text-uppercase tracking-wider">Questions?</span>
+                <h2 class="display-5 fw-bolder text-main">Service FAQ</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion accordion-flush shadow-sm rounded-4 overflow-hidden" id="pricingFAQ" style="--bs-accordion-active-color: var(--text-main); --bs-accordion-active-bg: #f8f9fa; --bs-accordion-btn-focus-box-shadow: none;">
+                        <div class="accordion-item border-bottom">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button fw-bold py-4" type="button" data-bs-toggle="collapse" data-bs-target="#f1">
+                                    Are materials included in the package price?
+                                </button>
+                            </h2>
+                            <div id="f1" class="accordion-collapse collapse show" data-bs-parent="#pricingFAQ">
+                                <div class="accordion-body text-muted pb-4">
+                                    Yes! All of our packages include premium paints (like Asian Paints or Dulux), primers, putty, and masking materials. You won't face any hidden costs for standard materials.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-bottom">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold py-4" type="button" data-bs-toggle="collapse" data-bs-target="#f2">
+                                    How long does a standard room repaint take?
+                                </button>
+                            </h2>
+                            <div id="f2" class="accordion-collapse collapse" data-bs-parent="#pricingFAQ">
+                                <div class="accordion-body text-muted pb-4">
+                                    A standard room takes about 2-3 days from start to finish. This includes masking, minor repairs, priming, painting, and cleanup. We never rush the drying process between coats.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-bottom">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold py-4" type="button" data-bs-toggle="collapse" data-bs-target="#f3">
+                                    Do you move the furniture?
+                                </button>
+                            </h2>
+                            <div id="f3" class="accordion-collapse collapse" data-bs-parent="#pricingFAQ">
+                                <div class="accordion-body text-muted pb-4">
+                                    Yes, our team will carefully move large furniture to the center of the room and completely wrap it in protective plastic sheeting before any prep work begins.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold py-4" type="button" data-bs-toggle="collapse" data-bs-target="#f4">
+                                    What is covered under the warranty?
+                                </button>
+                            </h2>
+                            <div id="f4" class="accordion-collapse collapse" data-bs-parent="#pricingFAQ">
+                                <div class="accordion-body text-muted pb-4">
+                                    Our warranty covers any peeling, blistering, or flaking that occurs due to improper application. It also covers waterproofing failures if a comprehensive exterior package was chosen.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="footer-logo d-flex align-items-center gap-2 mb-3" href="index.html" style="text-decoration: none;">
+                        <svg width="36" height="36" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M25 5C25 5 10 18 10 30C10 38.284 16.716 45 25 45C33.284 45 40 38.284 40 30C40 18 25 5 25 5Z" fill="url(#paint_foot)"/>
+                            <rect x="18" y="18" width="14" height="7" rx="2" fill="white"/>
+                            <path d="M16 21.5H14V30C14 31.105 14.895 32 16 32H25V35" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            <rect x="23" y="35" width="4" height="5" rx="1" fill="white"/>
+                            <defs>
+                                <linearGradient id="paint_foot" x1="10" y1="25" x2="40" y2="25" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#1E3A8A"/>
+                                    <stop offset="1" stop-color="#3B82F6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span class="fs-4 fw-bolder mb-0" style="letter-spacing: -1px; font-family: 'Inter', sans-serif;">
+                            <span class="text-dark">Pro</span><span style="color: #3B82F6;">Coat</span>
+                        </span>
+                    </a>
+                    <p class="text-muted">Premium painting and waterproofing services for residential and commercial properties. Quality finishes that last.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 footer-links">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="brands.html">Brands We Use</a></li>
+                        <li><a href="quote.html">Free Quote</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 footer-links">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="gallery.html">Project Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Newsletter</h5>
+                    <p class="text-muted">Get painting tips and seasonal service discounts.</p>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control rounded-pill-start border-primary" placeholder="Email address">
+                        <button class="btn btn-project btn-primary-fest rounded-pill-end" type="button">Join</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5 border-primary opacity-25">
+            <div class="text-center text-muted small">
+                &copy; 2026 ProCoat Painting. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Comparison Reveal Animation
+        const compareObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.check-item').forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add('revealed');
+                        }, index * 150);
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const compareSection = document.querySelector('.comparison-wrap');
+        if(compareSection) compareObserver.observe(compareSection);
+    </script>
+</body>
+</html>

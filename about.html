@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | ProCoat Painting</title>
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
+    
+    <style>
+        .crew-avatar-wrapper {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto;
+        }
+
+        .crew-avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1px solid rgba(30, 58, 138, 0.4);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            background: #eee;
+            transition: var(--transition);
+        }
+
+        .crew-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 15%; /* Moves head down into center */
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .crew-avatar {
+            transform: scale(1.05) translateY(-5px);
+            border-color: var(--sky-orange);
+            box-shadow: 0 15px 30px rgba(234, 88, 12, 0.2);
+        }
+
+        .service-card:hover .crew-avatar img {
+            transform: scale(1.1);
+        }
+
+        .avatar-info { border-color: var(--turquoise-splash); }
+        .avatar-success { border-color: var(--fresh-grass); }
+        .avatar-danger { border-color: var(--playful-red); }
+    </style>
+</head>
+<body data-theme="light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-xl navbar-custom">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html" style="text-decoration: none;">
+                <svg width="36" height="36" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25 5C25 5 10 18 10 30C10 38.284 16.716 45 25 45C33.284 45 40 38.284 40 30C40 18 25 5 25 5Z" fill="url(#paint_nav)"/>
+                    <rect x="18" y="18" width="14" height="7" rx="2" fill="white"/>
+                    <path d="M16 21.5H14V30C14 31.105 14.895 32 16 32H25V35" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <rect x="23" y="35" width="4" height="5" rx="1" fill="white"/>
+                    <defs>
+                        <linearGradient id="paint_nav" x1="10" y1="25" x2="40" y2="25" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#1E3A8A"/>
+                            <stop offset="1" stop-color="#3B82F6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="fs-4 fw-bolder mb-0" style="color: #1E3A8A; letter-spacing: -1px; font-family: 'Inter', sans-serif;">Pro<span style="color: #3B82F6;">Coat</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Brands & Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item d-lg-none mt-2">
+                        <div class="d-flex gap-2 px-2 pb-2">
+                            <button class="btn btn-project btn-primary-fest flex-fill" onclick="location.href='login.html'">Login</button>
+                            <button class="btn btn-project btn-outline-fest flex-fill" onclick="location.href='quote.html'">Free Quote</button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <button id="rtl-toggle" class="btn btn-outline-fest nav-icon-btn fw-bold" style="font-size: 0.8rem;">RTL</button>
+                    <button id="theme-toggle" class="btn btn-outline-fest nav-icon-btn"><i class="bi bi-moon-stars-fill"></i></button>
+                    <button class="btn btn-project btn-primary-fest d-none d-lg-block" onclick="location.href='login.html'">Login</button>
+                    <button class="btn btn-project btn-outline-fest d-none d-lg-block" onclick="location.href='quote.html'">Free Quote</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="section-padding text-center" style="background: var(--secondary-bg);">
+        <div class="container">
+            <span class="badge bg-white text-dark mb-3 px-3 py-2 rounded-pill shadow-sm">Our Story</span>
+            <h1 class="display-3 fw-bold">Built on Quality, Born for Protection</h1>
+            <p class="lead text-muted mx-auto" style="max-width: 700px;">We believe every residential and commercial property deserves to look its best and be protected from the elements.</p>
+        </div>
+    </header>
+
+    <!-- Brand Story Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="position-relative">
+                        <img src="assets/images/hero_about.png" class="img-fluid rounded-5 shadow-lg" alt="Brand Story">
+                        <div class="position-absolute bottom-0 end-0 bg-primary p-4 rounded-5 translate-middle-x d-none d-md-block shadow-lg">
+                            <h2 class="mb-0 fw-bold">10+</h2>
+                            <p class="mb-0 small">Years of Trust</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5 text-center text-lg-start">
+                    <div class="section-title text-center text-lg-start mb-4">
+                        <span>How we started</span>
+                        <h2>More Than Just Painters</h2>
+                    </div>
+                    <p>It started with a small team dedicated to fixing persistent leakage issues and painting homes with unmatched precision. Today, that dedication to quality is what drives us.</p>
+                    <p>We've grown into the region's leading painting and waterproofing contractor, serving thousands of happy homeowners and businesses. Our mission remains the same: to protect and beautify your investments.</p>
+                    <div class="row g-4 mt-2 text-center text-lg-start">
+                        <div class="col-12 col-sm-6">
+                            <h4 class="text-orange">Premium Quality</h4>
+                            <p class="small text-muted">Premium paints and waterproofing chemicals.</p>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <h4 class="text-info">Customer First</h4>
+                            <p class="small text-muted">Designed to provide long-lasting satisfaction.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Showcase -->
+    <section class="section-padding" style="border-radius: 5rem; background: var(--secondary-bg);">
+        <div class="container">
+            <div class="section-title">
+                <span class="text-info">Our Values</span>
+                <h2 class="text-main">Why We Do What We Do</h2>
+            </div>
+            <div class="row g-5 text-center justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="p-5 rounded-5 h-100 shadow-sm border-0" style="background: var(--card-bg); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <div class="mb-4 mx-auto d-flex align-items-center justify-content-center rounded-circle bg-primary text-white" style="width: 80px; height: 80px; box-shadow: 0 10px 20px rgba(30, 58, 138, 0.2);">
+                            <i class="bi bi-heart-fill h2 mb-0"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Passion for Perfection</h4>
+                        <p class="text-muted mb-0">We love what we do, and it shows in every stroke of our brushes and every wall we protect.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="p-5 rounded-5 h-100 shadow-sm border-0" style="background: var(--card-bg); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <div class="mb-4 mx-auto d-flex align-items-center justify-content-center rounded-circle bg-info text-white" style="width: 80px; height: 80px; box-shadow: 0 10px 20px rgba(13, 148, 136, 0.2);">
+                            <i class="bi bi-shield-check h2 mb-0"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Uncompromising Quality</h4>
+                        <p class="text-muted mb-0">From our surface preparation to the final coat, we settle for nothing less than absolute perfection.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="p-5 rounded-5 h-100 shadow-sm border-0" style="background: var(--card-bg); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <div class="mb-4 mx-auto d-flex align-items-center justify-content-center rounded-circle bg-danger text-white" style="width: 80px; height: 80px; box-shadow: 0 10px 20px rgba(239, 68, 68, 0.2);">
+                            <i class="bi bi-stars h2 mb-0"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Durability Matters</h4>
+                        <p class="text-muted mb-0">We don't just paint walls; we provide robust protection that stands the test of time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Company Growth Timeline Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <span class="text-orange fw-bold text-uppercase tracking-wider">Our Journey</span>
+                <h2 class="display-5 fw-bolder text-main">How We Grew</h2>
+                <p class="text-muted lead mt-3">From a small local crew to the region's most trusted painting and waterproofing contractor.</p>
+            </div>
+            
+            <div class="growth-timeline mt-5 pt-4">
+                <!-- 2014 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2014</div>
+                        <h4 class="fw-bold text-main mb-2">The Beginning</h4>
+                        <p class="text-muted mb-0">ProCoat was founded by a small team of passionate painters with a single truck and a commitment to absolute quality.</p>
+                    </div>
+                </div>
+                
+                <!-- 2017 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2017</div>
+                        <h4 class="fw-bold text-main mb-2">Waterproofing Division</h4>
+                        <p class="text-muted mb-0">Recognizing a massive need in the market, we partnered with Dr. Fixit and launched our specialized exterior waterproofing division.</p>
+                    </div>
+                </div>
+                
+                <!-- 2021 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021</div>
+                        <h4 class="fw-bold text-main mb-2">Commercial Expansion</h4>
+                        <p class="text-muted mb-0">We scaled our operations to take on large commercial projects, providing weatherproofing for offices, malls, and warehouses.</p>
+                    </div>
+                </div>
+                
+                <!-- 2026 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2026</div>
+                        <h4 class="fw-bold text-main mb-2">Industry Leaders</h4>
+                        <p class="text-muted mb-0">Today, ProCoat is recognized as the #1 painting and waterproofing contractor in the region, having successfully transformed over 5,000 properties.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <span>The Crew</span>
+                <h2>Meet Our Experts</h2>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card text-center p-4">
+                        <div class="crew-avatar-wrapper mb-4">
+                            <div class="crew-avatar">
+                                <img src="assets/images/team_alex.png" alt="Alex Rivers">
+                            </div>
+                        </div>
+                        <h5 class="fw-bold mb-1">Alex Rivers</h5>
+                        <p class="text-orange small fw-bold">Master Painter & Founder</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card text-center p-4">
+                        <div class="crew-avatar-wrapper mb-4">
+                            <div class="crew-avatar avatar-info">
+                                <img src="assets/images/team_jamie.png" alt="Jamie Sun">
+                            </div>
+                        </div>
+                        <h5 class="fw-bold mb-1">Jamie Sun</h5>
+                        <p class="text-info small fw-bold">Waterproofing Specialist</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card text-center p-4">
+                        <div class="crew-avatar-wrapper mb-4">
+                            <div class="crew-avatar avatar-success">
+                                <img src="assets/images/team_leo.png" alt="Leo Moss">
+                            </div>
+                        </div>
+                        <h5 class="fw-bold mb-1">Leo Moss</h5>
+                        <p class="text-success small fw-bold">Site Manager</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card text-center p-4">
+                        <div class="crew-avatar-wrapper mb-4">
+                            <div class="crew-avatar avatar-danger">
+                                <img src="assets/images/team_maya.png" alt="Maya Gold">
+                            </div>
+                        </div>
+                        <h5 class="fw-bold mb-1">Maya Gold</h5>
+                        <p class="text-danger small fw-bold">Color Consultant</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding text-center bg-primary">
+        <div class="container">
+            <h2 class="display-4 fw-bold mb-4">Ready to Transform Your Space?</h2>
+            <p class="lead mb-5">Let's make your property the best-looking one in the neighborhood.</p>
+            <a href="quote.html" class="btn btn-project btn-dark px-5">Get a Quote</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="footer-logo d-flex align-items-center gap-2 mb-3" href="index.html" style="text-decoration: none;">
+                        <svg width="36" height="36" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M25 5C25 5 10 18 10 30C10 38.284 16.716 45 25 45C33.284 45 40 38.284 40 30C40 18 25 5 25 5Z" fill="url(#paint_foot)"/>
+                            <rect x="18" y="18" width="14" height="7" rx="2" fill="white"/>
+                            <path d="M16 21.5H14V30C14 31.105 14.895 32 16 32H25V35" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            <rect x="23" y="35" width="4" height="5" rx="1" fill="white"/>
+                            <defs>
+                                <linearGradient id="paint_foot" x1="10" y1="25" x2="40" y2="25" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#1E3A8A"/>
+                                    <stop offset="1" stop-color="#3B82F6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span class="fs-4 fw-bolder mb-0" style="letter-spacing: -1px; font-family: 'Inter', sans-serif;">
+                            <span class="text-dark">Pro</span><span style="color: #3B82F6;">Coat</span>
+                        </span>
+                    </a>
+                    <p class="text-muted">Premium painting and waterproofing services for residential and commercial properties. Quality finishes that last.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 footer-links">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="brands.html">Brands We Use</a></li>
+                        <li><a href="quote.html">Free Quote</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 footer-links">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="gallery.html">Project Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Newsletter</h5>
+                    <p class="text-muted">Get painting tips and seasonal service discounts.</p>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control rounded-pill-start border-primary" placeholder="Email address">
+                        <button class="btn btn-project btn-primary-fest rounded-pill-end" type="button">Join</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5 border-primary opacity-25">
+            <div class="text-center text-muted small">
+                &copy; 2026 ProCoat Painting. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProCoat | Project Experience & Social Services</title>
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
+    
+    <style>
+        .hero-2 {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 8%;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.4) 100%), url('assets/images/hero_services.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-2::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, #0f172a 120%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .hero-2 .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .hero-2 .hero-content h1 {
+            font-size: 5.5rem;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: #ffffff;
+            -webkit-text-fill-color: initial;
+            background: none;
+            -webkit-background-clip: border-box;
+            font-weight: 800;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            letter-spacing: -1px;
+        }
+
+        .hero-2 .hero-content p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            max-width: 650px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .hero-2 .hero-content h1 { font-size: 3.5rem; }
+            .hero-2 { padding: 100px 5%; text-align: center; justify-content: center; }
+            .hero-2 .hero-content p { margin-left: auto; margin-right: auto; }
+            .hero-2 .d-flex { justify-content: center; }
+        }
+        
+        .glass-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .glass-badge i { color: var(--sky-orange); font-size: 1.2rem; }
+        
+        .hero-graphic {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            aspect-ratio: 1/1;
+            margin: 0 auto;
+            z-index: 2;
+        }
+        .hero-img-circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 2;
+        }
+        .hero-circle-anim {
+            position: absolute;
+            top: -40px; left: -40px; right: -40px; bottom: -40px;
+            border-radius: 50%;
+            border: 2px dashed rgba(255, 255, 255, 0.4);
+            animation: spin 30s linear infinite;
+            z-index: 1;
+        }
+        .hero-circle-anim::before {
+            content: '';
+            position: absolute;
+            top: 40px; left: 40px;
+            width: 20px; height: 20px;
+            background: var(--sky-orange);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--sky-orange);
+        }
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .showcase-card {
+            border-radius: 3rem;
+            border: none;
+            overflow: hidden;
+            height: 400px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .showcase-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .showcase-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .showcase-card:hover .showcase-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .showcase-card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Giant Services Section - Full Width & Animation */
+        .giant-card {
+            padding: 0 !important;
+            background: var(--card-bg) !important;
+            border: 1px solid var(--border-color) !important;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+            opacity: 0; /* For reveal animation */
+        }
+
+        .giant-card.revealed {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .giant-card .img-wrapper {
+            height: 280px;
+            border-radius: 0;
+            margin-bottom: 0;
+        }
+
+        .giant-card .card-content {
+            padding: 1.5rem;
+        }
+
+        .giant-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: rgba(30, 58, 138, 0.55) !important;
+            box-shadow: 0 20px 40px rgba(30, 58, 138, 0.15) !important;
+        }
+
+        .giant-card:hover .img-wrapper img {
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Alternating Feature Section */
+        .feature-block {
+            padding: 80px 10%; /* 10% alignment */
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            min-height: 500px;
+        }
+
+        .feature-block:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .feature-image-side {
+            flex: 1;
+            height: 450px;
+            border-radius: 3rem;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+
+        .feature-image-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .feature-block:hover .feature-image-side img {
+            transform: scale(1.05);
+        }
+
+        .feature-text-side {
+            flex: 1;
+        }
+
+        .feature-tag {
+            color: var(--sky-orange);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .feature-desc {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 991px) {
+            .feature-block, .feature-block:nth-child(even) {
+                flex-direction: column;
+                padding: 60px 5%;
+                gap: 30px;
+                text-align: center;
+            }
+            .feature-image-side {
+                width: 100%;
+                height: 350px;
+            }
+            .feature-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-xl navbar-custom">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html" style="text-decoration: none;">
+                <svg width="36" height="36" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25 5C25 5 10 18 10 30C10 38.284 16.716 45 25 45C33.284 45 40 38.284 40 30C40 18 25 5 25 5Z" fill="url(#paint_nav)"/>
+                    <rect x="18" y="18" width="14" height="7" rx="2" fill="white"/>
+                    <path d="M16 21.5H14V30C14 31.105 14.895 32 16 32H25V35" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <rect x="23" y="35" width="4" height="5" rx="1" fill="white"/>
+                    <defs>
+                        <linearGradient id="paint_nav" x1="10" y1="25" x2="40" y2="25" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#1E3A8A"/>
+                            <stop offset="1" stop-color="#3B82F6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="fs-4 fw-bolder mb-0" style="color: #1E3A8A; letter-spacing: -1px; font-family: 'Inter', sans-serif;">Pro<span style="color: #3B82F6;">Coat</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Brands & Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item d-lg-none mt-2">
+                        <div class="d-flex gap-2 px-2 pb-2">
+                            <button class="btn btn-project btn-primary-fest flex-fill" onclick="location.href='login.html'">Login</button>
+                            <button class="btn btn-project btn-outline-fest flex-fill" onclick="location.href='quote.html'">Free Quote</button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-3">
+                    <button id="rtl-toggle" class="btn btn-outline-fest nav-icon-btn fw-bold" style="font-size: 0.8rem;">RTL</button>
+                    <button id="theme-toggle" class="btn btn-outline-fest nav-icon-btn"><i class="bi bi-moon-stars-fill"></i></button>
+                    <button class="btn btn-project btn-primary-fest d-none d-lg-block" onclick="location.href='login.html'">Login</button>
+                    <button class="btn btn-project btn-outline-fest d-none d-lg-block" onclick="location.href='quote.html'">Free Quote</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section 2 -->
+    <header class="hero-2">
+        <div class="container-fluid px-lg-5">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="hero-content text-center text-lg-start">
+                        <div class="glass-badge">
+                            <i class="bi bi-star-fill"></i> Premium Quality Guaranteed
+                        </div>
+                        <h1>Professional Painting <br><span style="color: var(--sky-orange);">& Waterproofing</span></h1>
+                        <p>Experience top-tier property transformation with our premium paints, expert application, and advanced waterproofing systems.</p>
+                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-lg-start mt-4">
+                            <a href="quote.html" class="btn btn-project btn-primary-fest rounded-pill px-4 px-md-5 py-3 fs-6 fs-md-5 shadow-lg text-nowrap">Schedule a Visit <i class="bi bi-arrow-right ms-2"></i></a>
+                            <a href="services.html" class="btn btn-project btn-outline-fest rounded-pill px-4 px-md-5 py-3 fs-6 fs-md-5 text-nowrap" style="color: white; border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.05); backdrop-filter: blur(5px);">See Collection</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="hero-graphic">
+                        <div class="hero-circle-anim"></div>
+                        <img src="assets/images/painter_interior.png" alt="Premium Painting" class="hero-img-circle">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Premium Signature Finishes Section -->
+    <section class="section-padding position-relative" style="background: var(--main-bg); overflow: hidden;">
+        <!-- Premium Background Elements -->
+        <div class="position-absolute top-0 end-0 p-5" style="opacity: 0.03; font-size: 25rem; line-height: 1; transform: translate(20%, -20%); pointer-events: none;">
+            <i class="bi bi-brush"></i>
+        </div>
+        <div class="container position-relative z-index-1">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5 text-center text-lg-start">
+                    <div class="section-title mb-4">
+                        <span class="text-orange fw-bold text-uppercase" style="letter-spacing: 2px;">Premium Craftsmanship</span>
+                        <h2 class="display-4 fw-bolder text-main lh-sm mt-2 mb-4">Mastering the Art of Surface Protection</h2>
+                    </div>
+                    <p class="lead text-muted mb-4 mx-auto mx-lg-0" style="max-width: 600px;">
+                        We don't just paint walls; we engineer durable, stunning finishes. From meticulous surface preparation to the final coat of industry-leading materials, our premium process guarantees a flawless, long-lasting result.
+                    </p>
+                    <ul class="list-unstyled mb-5 d-inline-block text-start mx-auto">
+                        <li class="d-flex align-items-center mb-3">
+                            <div class="icon-circle bg-primary text-white me-3 d-flex align-items-center justify-content-center shadow-sm" style="width: 45px; height: 45px; border-radius: 50%;">
+                                <i class="bi bi-droplet-half"></i>
+                            </div>
+                            <span class="fw-bold fs-5 text-main">Advanced Waterproofing Tech</span>
+                        </li>
+                        <li class="d-flex align-items-center mb-3">
+                            <div class="icon-circle bg-orange text-white me-3 d-flex align-items-center justify-content-center shadow-sm" style="width: 45px; height: 45px; border-radius: 50%;">
+                                <i class="bi bi-palette-fill"></i>
+                            </div>
+                            <span class="fw-bold fs-5 text-main">Custom Color Engineering</span>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <div class="icon-circle bg-info text-white me-3 d-flex align-items-center justify-content-center shadow-sm" style="width: 45px; height: 45px; border-radius: 50%;">
+                                <i class="bi bi-patch-check-fill"></i>
+                            </div>
+                            <span class="fw-bold fs-5 text-main">10-Year Finish Warranty</span>
+                        </li>
+                    </ul>
+                    <div>
+                        <a href="about.html" class="btn btn-project btn-primary-fest rounded-pill px-5 py-3 fs-6 shadow-lg">Discover Our Expertise</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7">
+                    <div class="text-center text-lg-end">
+                        <img src="assets/images/commercial_painting.png" class="img-fluid rounded-4 shadow-lg" alt="Premium Painting">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Waterproofing Setup -->
+    <section class="section-padding" style="background: var(--secondary-bg);">
+        <div class="container">
+            <div class="row align-items-center flex-lg-row-reverse">
+                <div class="col-lg-6 text-center mb-4 mb-lg-0">
+                    <img src="assets/images/roof_waterproofing.png" class="img-fluid rounded-5 shadow-lg mx-auto" alt="Waterproofing">
+                </div>
+                <div class="col-lg-6 pe-lg-5 text-center text-lg-start">
+                    <div class="section-title text-center text-lg-start mb-4">
+                        <span>Serviceday Ready</span>
+                        <h2>Advanced Waterproofing Systems</h2>
+                    </div>
+                    <p>Protect your property from severe weather and leaks with our state-of-the-art waterproofing solutions. We ensure a dry, safe environment for your building.</p>
+                    <a href="services.html" class="btn btn-project btn-secondary-fest mt-3 mx-auto mx-lg-0">View Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container-fluid px-0">
+            <div class="section-title">
+                <span>The ProCoat Standard</span>
+                <h2>Why Choose ProCoat</h2>
+            </div>
+            
+            <!-- Feature 1: Connection -->
+            <div class="feature-block">
+                <div class="feature-image-side">
+                    <img src="assets/images/happy_team.png" alt="Foster Connection">
+                </div>
+                <div class="feature-text-side">
+                    <span class="feature-tag">Excellence</span>
+                    <h3 class="feature-title">Unmatched Quality</h3>
+                    <p class="feature-desc">We use only the highest quality materials and employ highly skilled professionals to ensure a finish that exceeds your expectations.</p>
+                    <a href="quote.html" class="btn btn-project btn-primary-fest">Request a Quote</a>
+                </div>
+            </div>
+
+            <!-- Feature 2: Rivalry -->
+            <div class="feature-block">
+                <div class="feature-image-side">
+                    <img src="assets/images/culture_friendly.png" alt="Friendly Rivalry">
+                </div>
+                <div class="feature-text-side">
+                    <span class="feature-tag">Efficiency</span>
+                    <h3 class="feature-title">Timely Project Completion</h3>
+                    <p class="feature-desc">We respect your time and property. Our teams work efficiently to minimize disruption and complete your project on schedule.</p>
+                    <a href="services.html" class="btn btn-project btn-outline-fest">See Project Services</a>
+                </div>
+            </div>
+
+            <!-- Feature 3: Relief -->
+            <div class="feature-block">
+                <div class="feature-image-side">
+                    <img src="assets/images/culture_stress_relief.png" alt="Stress Relief">
+                </div>
+                <div class="feature-text-side">
+                    <span class="feature-tag">Reliability</span>
+                    <h3 class="feature-title">Guaranteed Protection</h3>
+                    <p class="feature-desc">Our waterproofing and exterior coatings come with extensive warranties, giving you total peace of mind.</p>
+                    <a href="brands.html" class="btn btn-project btn-secondary-fest">View Commercial Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Giant Service Collection -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <span class="text-primary">Beyond The Basics</span>
+                <h2>Specialized Finishes</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card giant-card" style="animation-delay: 0.1s;">
+                        <div class="img-wrapper">
+                            <img src="assets/images/texture_painting.png" alt="Texture Painting">
+                        </div>
+                        <div class="card-content text-center text-lg-start">
+                            <h5>Texture Painting</h5>
+                            <p class="small text-muted">Modern artistic wall textures.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card giant-card" style="animation-delay: 0.2s;">
+                        <div class="img-wrapper">
+                            <img src="assets/images/wood_polishing.png" alt="Wood Polishing">
+                        </div>
+                        <div class="card-content text-center text-lg-start">
+                            <h5>Wood Polishing</h5>
+                            <p class="small text-muted">Restoring beauty to wood surfaces.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card giant-card" style="animation-delay: 0.3s;">
+                        <div class="img-wrapper">
+                            <img src="assets/images/service_metal_coating.png" alt="Metal Coating">
+                        </div>
+                        <div class="card-content text-center text-lg-start">
+                            <h5>Metal Coating</h5>
+                            <p class="small text-muted">Anti-rust and industrial paint.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card giant-card" style="animation-delay: 0.4s;">
+                        <div class="img-wrapper">
+                            <img src="assets/images/service_dampness.png" alt="Dampness Treatment">
+                        </div>
+                        <div class="card-content text-center text-lg-start">
+                            <h5>Dampness Treatment</h5>
+                            <p class="small text-muted">Permanent anti-damp solutions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Unique Section: Interactive Step-by-Step Methodology -->
+    <section class="section-padding overflow-hidden">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="section-title text-start mb-5">
+                        <span class="text-orange fw-bold text-uppercase tracking-wider">Methodology</span>
+                        <h2 class="display-5 fw-bolder text-main">Our Proven 4-Step Process</h2>
+                        <p class="text-muted lead mt-3">Hover over each step to see how we guarantee a flawless and durable finish on every single property.</p>
+                    </div>
+                    
+                    <div class="process-timeline mt-5">
+                        <!-- Step 1 -->
+                        <div class="process-node">
+                            <h4 class="fw-bold text-primary mb-2">1. Deep Surface Preparation</h4>
+                            <p class="text-muted mb-0">We don't just paint over problems. We scrape, sand, and chemically clean every inch to ensure absolute adhesion.</p>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="process-node">
+                            <h4 class="fw-bold text-orange mb-2">2. Multi-Layer Waterproofing</h4>
+                            <p class="text-muted mb-0">Applying elastomeric coatings and high-grade sealants to block out all moisture and prevent future structural damage.</p>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="process-node">
+                            <h4 class="fw-bold text-info mb-2">3. Precision Paint Application</h4>
+                            <p class="text-muted mb-0">Using state-of-the-art sprayers and premium rollers to apply smooth, even coats of highly durable, weather-resistant paint.</p>
+                        </div>
+                        <!-- Step 4 -->
+                        <div class="process-node">
+                            <h4 class="fw-bold text-main mb-2">4. Client Walkthrough</h4>
+                            <p class="text-muted mb-0">A rigorous final inspection with you to guarantee that every single corner meets the ProCoat golden standard.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 position-relative d-none d-lg-block">
+                    <img src="assets/images/happy_team.png" class="img-fluid rounded-4 shadow-lg w-100" style="object-fit: cover; height: 750px; filter: brightness(0.9);" alt="Process In Action">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unique Section: Glassmorphism Materials Showcase -->
+    <section class="section-padding position-relative" style="background: url('assets/images/hero_gallery.png') center/cover fixed;">
+        <!-- Dark Overlay for Contrast -->
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.75); z-index: 0;"></div>
+        
+        <div class="container position-relative z-index-1">
+            <div class="section-title text-center text-white mb-5">
+                <span class="text-warning fw-bold text-uppercase">Premium Materials</span>
+                <h2 class="display-5 fw-bolder text-white">We Use Only The Best</h2>
+                <p class="text-light lead mt-3 opacity-75">World-class brands engineered for extreme durability and vibrant colors.</p>
+            </div>
+            
+            <div class="row g-4 mt-3">
+                <div class="col-lg-4">
+                    <div class="material-glass-card text-center h-100">
+                        <div class="material-icon-wrap">
+                            <i class="bi bi-droplet-fill"></i>
+                        </div>
+                        <h4 class="text-white fw-bold mb-3">Asian Paints</h4>
+                        <p class="text-light opacity-75 mb-0">Premium Apex Ultima and Royale formulations for an ultra-smooth, weather-defying exterior and interior finish.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="material-glass-card text-center h-100">
+                        <div class="material-icon-wrap">
+                            <i class="bi bi-shield-shaded"></i>
+                        </div>
+                        <h4 class="text-white fw-bold mb-3">Dr. Fixit</h4>
+                        <p class="text-light opacity-75 mb-0">The gold standard in waterproofing. We use advanced polymer coatings to completely seal roofs and foundations.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="material-glass-card text-center h-100">
+                        <div class="material-icon-wrap">
+                            <i class="bi bi-palette"></i>
+                        </div>
+                        <h4 class="text-white fw-bold mb-3">Dulux Velvet</h4>
+                        <p class="text-light opacity-75 mb-0">Luxurious, highly washable interior paints that provide a rich, velvet-like texture that resists stains forever.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="brands.html" class="btn btn-project btn-outline-fest px-5 py-3 fs-5 rounded-pill text-white border-white">Explore All Materials</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Social Property Testimonials -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-center text-lg-start mb-4 mb-lg-0">
+                    <div class="section-title text-center text-lg-start">
+                        <span>Loved by Many</span>
+                        <h2>What Our Clients Say</h2>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="service-card text-center text-md-start d-flex flex-column align-items-center align-items-md-start">
+                                <p class="fst-italic">"The attention to detail and the quality of the paint job was incredible. They truly transformed our home."</p>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                        <i class="bi bi-person-fill text-white fs-4"></i>
+                                    </div>
+                                    <div class="text-start">
+                                        <h6 class="mb-0">David K.</h6>
+                                        <small class="text-muted">Homeowner</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="service-card text-center text-md-start d-flex flex-column align-items-center align-items-md-start">
+                                <p class="fst-italic">"Professional, clean, and highly skilled. They waterproofed our entire commercial roof flawlessly."</p>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="rounded-circle bg-info d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                        <i class="bi bi-person-fill text-white fs-4"></i>
+                                    </div>
+                                    <div class="text-start">
+                                        <h6 class="mb-0">Amanda L.</h6>
+                                        <small class="text-muted">Facility Manager</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as index.html for consistency) -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <a class="footer-logo d-flex align-items-center gap-2 mb-3" href="index.html" style="text-decoration: none;">
+                        <svg width="36" height="36" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M25 5C25 5 10 18 10 30C10 38.284 16.716 45 25 45C33.284 45 40 38.284 40 30C40 18 25 5 25 5Z" fill="url(#paint_foot)"/>
+                            <rect x="18" y="18" width="14" height="7" rx="2" fill="white"/>
+                            <path d="M16 21.5H14V30C14 31.105 14.895 32 16 32H25V35" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            <rect x="23" y="35" width="4" height="5" rx="1" fill="white"/>
+                            <defs>
+                                <linearGradient id="paint_foot" x1="10" y1="25" x2="40" y2="25" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#1E3A8A"/>
+                                    <stop offset="1" stop-color="#3B82F6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span class="fs-4 fw-bolder mb-0" style="letter-spacing: -1px; font-family: 'Inter', sans-serif;">
+                            <span class="text-dark">Pro</span><span style="color: #3B82F6;">Coat</span>
+                        </span>
+                    </a>
+                    <p class="text-muted">Premium painting and waterproofing services for residential and commercial properties. Quality finishes that last.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 footer-links">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="brands.html">Brands We Use</a></li>
+                        <li><a href="quote.html">Free Quote</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 footer-links">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="gallery.html">Project Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Newsletter</h5>
+                    <p class="text-muted">Get painting tips and seasonal service discounts.</p>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control rounded-pill-start border-primary" placeholder="Email address">
+                        <button class="btn btn-project btn-primary-fest rounded-pill-end" type="button">Join</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5 border-primary opacity-25">
+            <div class="text-center text-muted small">
+                &copy; 2026 ProCoat Painting. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
