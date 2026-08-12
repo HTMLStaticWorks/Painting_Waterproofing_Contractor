@@ -24,7 +24,7 @@ body[data-theme='dark'] .nav-link {
 
 body[data-theme='dark'] .nav-link:hover, 
 body[data-theme='dark'] .nav-link.active {
-    background: #3a3324;
+    background: transparent;
     color: var(--sunflower-yellow);
 }
 
