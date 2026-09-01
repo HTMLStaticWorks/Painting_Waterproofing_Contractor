@@ -78,8 +78,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="home-2.html">Home 2</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Home
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="homeDropdown">
+                            <li><a class="dropdown-item active" href="index.html">Home 1</a></li>
+                            <li><a class="dropdown-item" href="home-2.html">Home 2</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="gallery.html">Projects</a></li>
@@ -87,16 +94,14 @@
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                     <li class="nav-item d-lg-none mt-2">
                         <div class="d-flex gap-2 px-2 pb-2">
-                            <button class="btn btn-project btn-primary-fest flex-fill" onclick="location.href='login.html'">Login</button>
-                            <button class="btn btn-project btn-outline-fest flex-fill" onclick="location.href='quote.html'">Free Quote</button>
+                            <button class="btn btn-project btn-primary-fest btn-sm flex-fill" onclick="location.href='quote.html'">Free Quote</button>
                         </div>
                     </li>
                 </ul>
-                <div class="d-flex align-items-center gap-3">
-                    <button id="rtl-toggle" class="btn btn-outline-fest nav-icon-btn fw-bold" style="font-size: 0.8rem;">RTL</button>
-                    <button id="theme-toggle" class="btn btn-outline-fest nav-icon-btn"><i class="bi bi-moon-stars-fill"></i></button>
-                    <button class="btn btn-project btn-primary-fest d-none d-lg-block" onclick="location.href='login.html'">Login</button>
-                    <button class="btn btn-project btn-outline-fest d-none d-lg-block" onclick="location.href='quote.html'">Free Quote</button>
+                <div class="d-flex align-items-center gap-2">
+                    <button id="rtl-toggle" class="btn btn-outline-fest nav-icon-btn btn-sm fw-bold" style="font-size: 0.7rem; padding: 0.25rem 0.5rem;">RTL</button>
+                    <button id="theme-toggle" class="btn btn-outline-fest nav-icon-btn btn-sm" style="padding: 0.25rem 0.5rem;"><i class="bi bi-moon-stars-fill" style="font-size: 0.8rem;"></i></button>
+                    <button class="btn btn-project btn-primary-fest btn-sm d-none d-lg-block" onclick="location.href='quote.html'">Free Quote</button>
                 </div>
             </div>
         </div>
@@ -331,8 +336,8 @@
             </div>
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="p-4 rounded-4 shadow-sm border border-primary h-100 d-flex flex-column" style="background: var(--card-bg);">
-                        <div class="mb-3 text-primary">
+                    <div class="p-4 rounded-4 shadow-sm border h-100 d-flex flex-column" style="background: var(--card-bg); border-color: var(--sky-orange) !important;">
+                        <div class="mb-3" style="color: var(--sky-orange);">
                             <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                         </div>
                         <p class="fst-italic">"ProCoat completely transformed our exterior. The paint job is flawless and the waterproofing gives us peace of mind."</p>
@@ -340,8 +345,8 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="p-4 rounded-4 shadow-sm border border-info h-100 d-flex flex-column" style="background: var(--card-bg);">
-                        <div class="mb-3 text-info">
+                    <div class="p-4 rounded-4 shadow-sm border h-100 d-flex flex-column" style="background: var(--card-bg); border-color: var(--sky-orange) !important;">
+                        <div class="mb-3" style="color: var(--sky-orange);">
                             <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                         </div>
                         <p class="fst-italic">"Professional, clean, and on-time. Their interior painting team respected our home and did an amazing job."</p>
@@ -349,8 +354,8 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="p-4 rounded-4 shadow-sm border border-danger h-100 d-flex flex-column" style="background: var(--card-bg);">
-                        <div class="mb-3 text-danger">
+                    <div class="p-4 rounded-4 shadow-sm border h-100 d-flex flex-column" style="background: var(--card-bg); border-color: var(--sky-orange) !important;">
+                        <div class="mb-3" style="color: var(--sky-orange);">
                             <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                         </div>
                         <p class="fst-italic">"We had severe terrace leakage issues. ProCoat fixed it permanently with their advanced waterproofing solutions."</p>

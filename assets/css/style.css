@@ -85,6 +85,17 @@ section.section-padding:first-of-type {
     color: var(--sky-orange) !important;
 }
 
+/* Dropdown overrides */
+.dropdown-item.active, .dropdown-item:active {
+    background-color: var(--sky-orange);
+    color: #ffffff !important;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    background-color: rgba(234, 88, 12, 0.1);
+    color: var(--sky-orange);
+}
+
 .navbar-brand,
 .navbar-brand:hover,
 .navbar-brand:focus {

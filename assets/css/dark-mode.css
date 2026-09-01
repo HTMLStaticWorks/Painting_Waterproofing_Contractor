@@ -194,7 +194,7 @@ body[data-theme='dark'] .progress-bar.bg-warning {
 /* --- btn-secondary-fest: remap teal+green gradient to yellow+orange --- */
 body[data-theme='dark'] .btn-secondary-fest {
     background: linear-gradient(135deg, var(--sunflower-yellow), var(--sky-orange)) !important;
-    color: #0f172a !important;
+    color: #ffffff !important;
 }
 
 /* --- form-select dark mode background fix --- */
