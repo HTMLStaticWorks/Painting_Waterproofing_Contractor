@@ -86,13 +86,43 @@ body[data-theme='dark'] .navbar-toggler-icon {
     filter: invert(1) brightness(2);
 }
 
+body[data-theme='dark'] .accordion-button::after {
+    filter: brightness(0) invert(1) !important;
+}
+
+body[data-theme='dark'] .accordion {
+    --bs-accordion-bg: var(--primary-bg) !important;
+    --bs-accordion-color: var(--text-main) !important;
+    --bs-accordion-btn-color: var(--text-main) !important;
+    --bs-accordion-btn-bg: var(--primary-bg) !important;
+    --bs-accordion-active-bg: rgba(255, 255, 255, 0.05) !important;
+    --bs-accordion-active-color: var(--sunflower-yellow) !important;
+    --bs-accordion-border-color: var(--border-color) !important;
+    background-color: var(--primary-bg) !important;
+}
+
+body[data-theme='dark'] .accordion-item {
+    background-color: var(--primary-bg) !important;
+    border-color: var(--border-color) !important;
+}
+
+body[data-theme='dark'] .accordion-button {
+    background-color: var(--primary-bg) !important;
+    color: var(--text-main) !important;
+}
+
+body[data-theme='dark'] .accordion-button:not(.collapsed) {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+    color: var(--sky-orange) !important;
+}
+
 body[data-theme='dark'] .badge.bg-white {
     background-color: var(--sunflower-yellow) !important;
-    color: #0f172a !important;
+    color: #ffffff !important;
 }
 
 body[data-theme='dark'] .badge.bg-warning {
-    color: #0f172a !important;
+    color: #ffffff !important;
 }
 
 body[data-theme='dark'] .vibe-tag {
